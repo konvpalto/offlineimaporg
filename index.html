@@ -14,66 +14,62 @@
   }
 </script>
 <![endif]-->
-<link rel="stylesheet" href="/style.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
 <header>
   <hgroup>
-    <h1>OfflineImap</h1>
+    <h1><a href="http://offlineimap.org">OfflineImap</a></h1>
     <h2>Syncing IMAP accounts since 2002</h2>
   </hgroup>
-</header>
-
-<section id="TOC">
-<h1>Contents</h1>
 <nav>
-<ul>
-<li><a class="reference" href="#description">Description</a></li>
-<li><a class="reference" href="#method-of-operation" id="id4" name="id4">1.2&nbsp;&nbsp;&nbsp;Method of Operation</a></li>
-<li><a class="reference" href="#quick-start" id="id5" name="id5">1.3&nbsp;&nbsp;&nbsp;Quick Start</a></li>
-<li><a class="reference" href="#documentation" id="id6" name="id6">1.4&nbsp;&nbsp;&nbsp;Documentation</a></li>
-<li><a class="reference" href="#id1" id="id7" name="id7">1.5&nbsp;&nbsp;&nbsp;Mailing list</a></li>
-<li><a class="reference" href="#reporting-bugs" id="id8" name="id8">1.6&nbsp;&nbsp;&nbsp;Reporting bugs</a></li>
-<li><a class="reference" href="#bugs" id="id9" name="id9">1.6.1&nbsp;&nbsp;&nbsp;Bugs</a></li>
-<li><a class="reference" href="#examples" id="id10" name="id10">2&nbsp;&nbsp;&nbsp;Examples</a></li>
-<li><a class="reference" href="#multiple-accounts-with-mutt" id="id11" name="id11">2.1&nbsp;&nbsp;&nbsp;Multiple Accounts with Mutt</a></li>
-<li><a class="reference" href="#uw-imapd-and-references" id="id12" name="id12">2.2&nbsp;&nbsp;&nbsp;UW-IMAPD and References</a></li>
-<li><a class="reference" href="#pythonfile-configuration-file-option" id="id13" name="id13">2.3&nbsp;&nbsp;&nbsp;pythonfile Configuration File Option</a></li>
-<li><a class="reference" href="#signals" id="id14" name="id14">2.4&nbsp;&nbsp;&nbsp;Signals</a></li>
-</ul>
+<a class="reference" href="#ref-links">Links</a>
+<a class="reference" href="#ref-quick-start" >Quick Start</a>
+<a class="reference" href="#ref-documentation" >Documentation</a>
+<a class="reference" href="#ref-development" >Development</a>
 </nav>
-</section>
-
-<section id="1_content">
-<article>
-<header>
-<h1><a id="description" >1.1 Description</a></h1>
-<p>Welcome to the official OfflineIMAP project.</p>
 </header>
-<p><em>NOTICE:</em> this software was written by John Goerzen, who retired from
-maintaining. It is now maintained by Nicolas Sebrecht at
-<a class="reference" href="https://github.com/nicolas33/offlineimap">https://github.com/nicolas33/offlineimap</a>. Thanks to John for his great job and
-to have share this project with us.</p>
-<p>OfflineIMAP is a tool to simplify your e-mail reading. With OfflineIMAP, you can
+
+
+<section id="content">
+<!-- A sidebox that shows the latest Commits-->
+<aside id="commits_rss">
+<script type="text/javascript" src="http://feedoor.com/js/publish/rss2html.js"></script>
+<script type="text/javascript">
+var feedURL = 'http://feedoor.com/api/feed';
+var strChar = '0';
+var Dformat = '2';
+var limit = '10';
+var uri = 'offlineimapommits';
+var style = 'adrian';
+new getRSS ();
+</script><p>Powered By <a href="http://www.feedoor.com" target="_blank">Feedoor.com</a></p>
+</aside>
+
+
+<article>
+<header><h1><a id="ref-description"></a>Welcome to the OfflineIMAP project</h1></header>
+<p>OfflineIMAP is a tool to simplify your e-mail reading. You can
 read the same mailbox from multiple computers. You get a current copy of your
 messages on each computer, and changes you make one place will be visible on all
 other systems. For instance, you can delete a message on your home computer, and
 it will appear deleted on your work computer as well. OfflineIMAP is also useful
 if you want to use a mail reader that does not have IMAP support, has poor IMAP
 support, or does not provide disconnected operation.</p>
-<p>OfflineIMAP works on pretty much any POSIX operating system, such as Linux, BSD
-operating systems, MacOS X, Solaris, etc.</p>
-<p>OfflineIMAP is a Free Software project licensed under the GNU General Public
-License. You can download it for free, and you can modify it. In fact, you are
-encouraged to contribute to OfflineIMAP, and doing so is fast and easy.</p>
-<p>OfflineIMAP is FAST; it synchronizes my two accounts with over 50 folders in 3
-seconds.  Other similar tools might take over a minute, and achieve a
-less-reliable result.  Some mail readers can take over 10 minutes to do the same
-thing, and some don't even support it at all.  Unlike other mail tools,
-OfflineIMAP features a multi-threaded synchronization algorithm that can
-dramatically speed up performance in many situations by synchronizing several
-different things simultaneously.</p>
+
+<p>It is a Free Software project licensed under
+the <a href="https://github.com/nicolas33/offlineimap/raw/master/COPYING">GNU
+General Public License (v2+)</a>. You can download it for free, and you
+can modify it. In fact, you are encouraged to contribute changes back to us.</p>
+
+<p>OfflineIMAP is FAST; it features a multi-threaded synchronization
+algorithm that can dramatically speed up performance in many situations
+by synchronizing several different things simultaneously. The defaults
+are very conservative, so you might want to check the configuration page
+to learn how to enable multithreaded syncing.</p>
+
 <p>OfflineIMAP is FLEXIBLE; you can customize which folders are synced via regular
 expressions, lists, or Python expressions; a versatile and comprehensive
 configuration file is used to control behavior; two user interfaces are
@@ -81,16 +77,52 @@ built-in; fine-tuning of synchronization performance is possible; internal or
 external automation is supported; SSL and PREAUTH tunnels are both supported;
 offline (or &quot;unplugged&quot;) reading is supported; and esoteric IMAP features are
 supported to ensure compatibility with the widest variety of IMAP servers.</p>
-<p>OfflineIMAP is SAFE; it uses an algorithm designed to prevent mail loss at all
-costs.  Because of the design of this algorithm, even programming errors should
-not result in loss of mail.  I am so confident in the algorithm that I use my
-own personal and work accounts for testing of OfflineIMAP pre-release,
-development, and beta releases.  Of course, legally speaking, OfflineIMAP comes
-with no warranty, so I am not responsible if this turns out to be wrong.</p>
+
+<p>OfflineIMAP is SAFE; it absolutely attempts to never ever lose one of
+your mails under any circumstances. Of course, legally speaking,
+OfflineIMAP comes with no warranty, so I am not responsible if this
+turns out to be wrong.</p>
+
+<p>OfflineIMAP was originally written
+by <a href="http://www.complete.org/JohnGoerzen">John Goerzen</a>, who
+retired from maintaining it at then end of 2010.  It is now maintained
+by Nicolas Sebrecht.  Thanks to John for his great job and to have share
+this project with us.</p>
 </article>
 
 <article>
-<h1><a id="method-of-operation">Method of Operation</a></h1>
+<header><h1><a id="ref-links">Important links</a></h1>All important links at a glance...</header>
+
+<table id="linktable">
+<tr>
+ <td width="10%">Source code</td>
+ <td width="90%"><ul><li><a href="https://github.com/nicolas33/offlineimap">github home</a><br/><tt>git clone git://github.com/nicolas33/offlineimap.git</tt></li>
+   <li><a href="https://github.com/nicolas33/offlineimap/downloads">release tarballs</a></li>
+   <li>Via your distributions package manager for
+            <p><a href="http://packages.debian.org/search?keywords=offlineimap">Debian</a>, <a href="http://packages.ubuntu.com/search?keywords=offlineimap&searchon=names">Ubuntu</a>, Fedora, ...</p>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+            <script src="http://static.oswatershed.org/js/package_badge.js" type="text/javascript"></script>
+            <div id="osw_offlineimap">These versions are currently available (courtesy to <a href="http://oswatershed.org">oswatershed</a>):<br/>
+            <script>$(document).ready(function(){ package_badge("offlineimap", "#osw_offlineimap"); });</script></div>
+   </li>
+   </ul>
+ </td>
+</tr><tr>
+ <td>Bugs & Discussion</td>
+ <td><ul><li><a href='mailto&#58;o%6&#54;flin%65&#105;map&#45;p&#114;%6Fj%65ct&#64;l&#105;s&#116;s&#46;&#97;liot%68&#46;de&#37;6&#50;i&#97;n&#46;%6F%72%67'>o&#102;flineim&#97;p&#45;proj&#101;ct&#64;lists&#46;&#97;&#108;&#105;oth&#46;debian&#46;&#111;rg</a>;<br/>mailing list <a href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">portal</a></li>
+         <li><a href="http://dir.gmane.org/gmane.mail.imap.offlineimap.general">list archive (Gmane)</a></li>
+         <li><a href="nntp://news.gmane.org/gmane.mail.imap.offlineimap.general">access via nntp (Usenet)</a></li>
+
+         <li>Bugs should be reported at the mailing list.</li>
+       </ul>
+ </td>
+</tr><tr><td>Related projects</td><td><ul><li><a href="http://notmuchmail.org">notmuch email client</a></li></ul></td>
+</tr><tr><td></td><td></td>
+</tr></table>
+</article>
+
+<article>
+<header><h1><a id="method-of-operation">Method of Operation</a></h1></header>
 <p>OfflineIMAP traditionally operates by maintaining a hierarchy of mail folders in
 Maildir format locally.  Your own mail reader will read mail from this tree, and
 need never know that the mail comes from IMAP.  OfflineIMAP will detect changes
@@ -110,7 +142,16 @@ for the time being.</p>
 </article>
 
 <article>
-<h2><a class="toc-backref" href="#id5" id="quick-start" name="quick-start">1.3&nbsp;&nbsp;&nbsp;Quick Start</a></h2>
+<header><h1><a id="rf-sys-reqs" >System requirements</a></h1></header>
+
+<p>OfflineIMAP works on pretty much any POSIX operating system, such as Linux, BSD
+operating systems, MacOS X, Solaris. With some fiddling, it reportedly ran under Windows as well (TODO: link to documentation needed).</p>
+
+<p>It requires: Python >= 2.6. (If you don't need SSL, it might still work with python 2.4)</p>
+</article>
+
+<article>
+<header><h1><a id="ref-quick-start"></a>Quick Start</h1></header>
 <p>If you have already installed OfflineIMAP system-wide, or your system
 administrator has done that for you, your task for setting up OfflineIMAP for
 the first time is quite simple.  You just need to set up your configuration
@@ -150,33 +191,36 @@ Of course, if you want to see how you can make OfflineIMAP FIVE TIMES FASTER FOR
 JUST $19.95 (err, well, $0), you have to read on!</p>
 </article>
 
-<div class="section">
-<h2><a class="toc-backref" href="#id6" id="documentation" name="documentation">1.4&nbsp;&nbsp;&nbsp;Documentation</a></h2>
-<p>If you are reading this file on github, you can find more documentations in the
+<article>
+<header><h1><a id="ref-documentation"></a>Documentation</h1></header>
+<h2>Installation</h2>
+<a href="https://github.com/nicolas33/offlineimap/blob/master/docs/INSTALL.rst">Installation instructions.</a>
+<h2>Invocation & Configuration</h2>
+<a href="https://github.com/nicolas33/offlineimap/blob/master/docs/FAQ.rst">FAQ</a>
+<a href="https://github.com/nicolas33/offlineimap/blob/master/docs/MANUAL.rst">OfflineImap man page</a>
+
+<h2>Local documentation</h2>
+<p>If you prefer to read these documents offline, you can find them in your git repository checkout in the
 <cite>docs</cite> directory.</p>
-<p>Using your git repository, you can generate documentation with:</p>
+<p>Generate the documentation with:</p>
 <pre class="literal-block">
 $ make doc
 </pre>
-</div>
-<div class="section">
-<h2><a class="toc-backref" href="#id7" id="id1" name="id1">1.5&nbsp;&nbsp;&nbsp;Mailing list</a></h2>
+</article>
+
+<article>
+<header><h1><a id="ref-development" ></a>Development</h1></header>
+<h2><a id="ref-mailing-list" ></a>Mailing list</h2>
 <p>The user discussion, development and all exciting stuff take place in the
-<a class="reference" href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>. You're <em>NOT</em> supposed to subscribe to send emails.</p>
-</div>
-<div class="section">
-<h2><a class="toc-backref" href="#id8" id="reporting-bugs" name="reporting-bugs">1.6&nbsp;&nbsp;&nbsp;Reporting bugs</a></h2>
-<div class="section">
-<h3><a class="toc-backref" href="#id9" id="bugs" name="bugs">1.6.1&nbsp;&nbsp;&nbsp;Bugs</a></h3>
+<a href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>. It's email address is <a href='mailto&#58;o%6&#54;flin%65&#105;map&#45;p&#114;%6Fj%65ct&#64;l&#105;s&#116;s&#46;&#97;liot%68&#46;de&#37;6&#50;i&#97;n&#46;%6F%72%67'>o&#102;flineim&#97;p&#45;proj&#101;ct&#64;lists&#46;&#97;&#108;&#105;oth&#46;debian&#46;&#111;rg</a>. You do <em>NOT</em> need to be subscribed to send emails to this list (But don't forget to ask for a 'CC to you if you want to see the replies).</p>
+
+<h2><a class="toc-backref" href="#id8" id="reporting-bugs" name="reporting-bugs">Reporting bugs</a></h2>
 <p>Bugs and issues should be reported to the <a class="reference" href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>.</p>
-</div>
-</div>
-</div>
-<div class="section">
+</article>
 </section>
 
 <section>
-<h1><a class="toc-backref" href="#id10" id="examples" name="examples">2&nbsp;&nbsp;&nbsp;Examples</a></h1>
+<header><h1><a id="ref-examples" ></a>Examples</h1></header>
 <p>Here are some example configurations for various situations.  Please e-mail any
 other examples you have that may be useful to me.</p>
 <div class="section">
@@ -292,5 +336,7 @@ force an immediate resync of all accounts.  This will be ignored for all
 accounts for which a resync is already in progress.</blockquote>
 <p>--&gt;</p></div>
 </section>
+
+
 </body>
 </html>
