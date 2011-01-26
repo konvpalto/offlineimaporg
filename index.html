@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.4: http://docutils.sourceforge.net/" />
+<title></title>
+<style type="text/css">
+
+/*
+:Author: David Goodger
+:Contact: goodger@users.sourceforge.net
+:Date: $Date: 2005-12-18 01:56:14 +0100 (Sun, 18 Dec 2005) $
+:Revision: $Revision: 4224 $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin-left: 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em ;
+  background-color: #eeeeee }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+tt.docutils {
+  background-color: #eeeeee }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+<!-- -*- coding: utf-8 -*- -->
+<div class="section">
+<h1><a class="toc-backref" href="#id2" id="readme" name="readme">1&nbsp;&nbsp;&nbsp;README</a></h1>
+<div class="contents topic">
+<p class="topic-title first"><a id="contents" name="contents">Contents</a></p>
+<ul class="auto-toc simple">
+<li><a class="reference" href="#readme" id="id2" name="id2">1&nbsp;&nbsp;&nbsp;README</a><ul class="auto-toc">
+<li><a class="reference" href="#description" id="id3" name="id3">1.1&nbsp;&nbsp;&nbsp;Description</a></li>
+<li><a class="reference" href="#method-of-operation" id="id4" name="id4">1.2&nbsp;&nbsp;&nbsp;Method of Operation</a></li>
+<li><a class="reference" href="#quick-start" id="id5" name="id5">1.3&nbsp;&nbsp;&nbsp;Quick Start</a></li>
+<li><a class="reference" href="#documentation" id="id6" name="id6">1.4&nbsp;&nbsp;&nbsp;Documentation</a></li>
+<li><a class="reference" href="#id1" id="id7" name="id7">1.5&nbsp;&nbsp;&nbsp;Mailing list</a></li>
+<li><a class="reference" href="#reporting-bugs" id="id8" name="id8">1.6&nbsp;&nbsp;&nbsp;Reporting bugs</a><ul class="auto-toc">
+<li><a class="reference" href="#bugs" id="id9" name="id9">1.6.1&nbsp;&nbsp;&nbsp;Bugs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="#examples" id="id10" name="id10">2&nbsp;&nbsp;&nbsp;Examples</a><ul class="auto-toc">
+<li><a class="reference" href="#multiple-accounts-with-mutt" id="id11" name="id11">2.1&nbsp;&nbsp;&nbsp;Multiple Accounts with Mutt</a></li>
+<li><a class="reference" href="#uw-imapd-and-references" id="id12" name="id12">2.2&nbsp;&nbsp;&nbsp;UW-IMAPD and References</a></li>
+<li><a class="reference" href="#pythonfile-configuration-file-option" id="id13" name="id13">2.3&nbsp;&nbsp;&nbsp;pythonfile Configuration File Option</a></li>
+<li><a class="reference" href="#signals" id="id14" name="id14">2.4&nbsp;&nbsp;&nbsp;Signals</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id3" id="description" name="description">1.1&nbsp;&nbsp;&nbsp;Description</a></h2>
+<p>Welcome to the official OfflineIMAP project.</p>
+<p><em>NOTICE:</em> this software was written by John Goerzen, who retired from
+maintaining. It is now maintained by Nicolas Sebrecht at
+<a class="reference" href="https://github.com/nicolas33/offlineimap">https://github.com/nicolas33/offlineimap</a>. Thanks to John for his great job and
+to have share this project with us.</p>
+<p>OfflineIMAP is a tool to simplify your e-mail reading. With OfflineIMAP, you can
+read the same mailbox from multiple computers. You get a current copy of your
+messages on each computer, and changes you make one place will be visible on all
+other systems. For instance, you can delete a message on your home computer, and
+it will appear deleted on your work computer as well. OfflineIMAP is also useful
+if you want to use a mail reader that does not have IMAP support, has poor IMAP
+support, or does not provide disconnected operation.</p>
+<p>OfflineIMAP works on pretty much any POSIX operating system, such as Linux, BSD
+operating systems, MacOS X, Solaris, etc.</p>
+<p>OfflineIMAP is a Free Software project licensed under the GNU General Public
+License. You can download it for free, and you can modify it. In fact, you are
+encouraged to contribute to OfflineIMAP, and doing so is fast and easy.</p>
+<p>OfflineIMAP is FAST; it synchronizes my two accounts with over 50 folders in 3
+seconds.  Other similar tools might take over a minute, and achieve a
+less-reliable result.  Some mail readers can take over 10 minutes to do the same
+thing, and some don't even support it at all.  Unlike other mail tools,
+OfflineIMAP features a multi-threaded synchronization algorithm that can
+dramatically speed up performance in many situations by synchronizing several
+different things simultaneously.</p>
+<p>OfflineIMAP is FLEXIBLE; you can customize which folders are synced via regular
+expressions, lists, or Python expressions; a versatile and comprehensive
+configuration file is used to control behavior; two user interfaces are
+built-in; fine-tuning of synchronization performance is possible; internal or
+external automation is supported; SSL and PREAUTH tunnels are both supported;
+offline (or &quot;unplugged&quot;) reading is supported; and esoteric IMAP features are
+supported to ensure compatibility with the widest variety of IMAP servers.</p>
+<p>OfflineIMAP is SAFE; it uses an algorithm designed to prevent mail loss at all
+costs.  Because of the design of this algorithm, even programming errors should
+not result in loss of mail.  I am so confident in the algorithm that I use my
+own personal and work accounts for testing of OfflineIMAP pre-release,
+development, and beta releases.  Of course, legally speaking, OfflineIMAP comes
+with no warranty, so I am not responsible if this turns out to be wrong.</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id4" id="method-of-operation" name="method-of-operation">1.2&nbsp;&nbsp;&nbsp;Method of Operation</a></h2>
+<p>OfflineIMAP traditionally operates by maintaining a hierarchy of mail folders in
+Maildir format locally.  Your own mail reader will read mail from this tree, and
+need never know that the mail comes from IMAP.  OfflineIMAP will detect changes
+to the mail folders on your IMAP server and your own computer and
+bi-directionally synchronize them, copying, marking, and deleting messages as
+necessary.</p>
+<p>With OfflineIMAP 4.0, a powerful new ability has been introduced ― the program
+can now synchronize two IMAP servers with each other, with no need to have a
+Maildir layer in-between.  Many people use this if they use a mail reader on
+their local machine that does not support Maildirs.  People may install an IMAP
+server on their local machine, and point both OfflineIMAP and their mail reader
+of choice at it.  This is often preferable to the mail reader's own IMAP support
+since OfflineIMAP supports many features (offline reading, for one) that most
+IMAP-aware readers don't.  However, this feature is not as time-tested as
+traditional syncing, so my advice is to stick with normal methods of operation
+for the time being.</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id5" id="quick-start" name="quick-start">1.3&nbsp;&nbsp;&nbsp;Quick Start</a></h2>
+<p>If you have already installed OfflineIMAP system-wide, or your system
+administrator has done that for you, your task for setting up OfflineIMAP for
+the first time is quite simple.  You just need to set up your configuration
+file, make your folder directory, and run it!</p>
+<p>You can quickly set up your configuration file.  The distribution includes a
+file offlineimap.conf.minimal (Debian users may find this at
+<tt class="docutils literal"><span class="pre">/usr/share/doc/offlineimap/examples/offlineimap.conf.minimal</span></tt>) that is a
+basic example of setting of OfflineIMAP.  You can simply copy this file into
+your home directory and name it <tt class="docutils literal"><span class="pre">.offlineimaprc</span></tt> (note the leading period).  A
+command such as <tt class="docutils literal"><span class="pre">cp</span> <span class="pre">offlineimap.conf.minimal</span> <span class="pre">~/.offlineimaprc</span></tt> will do it.
+Or, if you prefer, you can just copy this text to <tt class="docutils literal"><span class="pre">~/.offlineimaprc</span></tt>:</p>
+<pre class="literal-block">
+[general]
+accounts = Test
+
+[Account Test]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Test
+
+[Repository Remote]
+type = IMAP
+remotehost = examplehost
+remoteuser = jgoerzen
+</pre>
+<p>Now, edit the <tt class="docutils literal"><span class="pre">~/.offlineimaprc</span></tt> file with your favorite editor.  All you have
+to do is specify a directory for your folders to be in (on the localfolders
+line), the host name of your IMAP server (on the remotehost line), and your
+login name on the remote (on the remoteuser line).  That's it!</p>
+<p>To run OfflineIMAP, you just have to say offlineimap ― it will fire up, ask you
+for a login password if necessary, synchronize your folders, and exit.  See?</p>
+<p>You can just throw away the rest of this finely-crafted, perfectly-honed manual!
+Of course, if you want to see how you can make OfflineIMAP FIVE TIMES FASTER FOR
+JUST $19.95 (err, well, $0), you have to read on!</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id6" id="documentation" name="documentation">1.4&nbsp;&nbsp;&nbsp;Documentation</a></h2>
+<p>If you are reading this file on github, you can find more documentations in the
+<cite>docs</cite> directory.</p>
+<p>Using your git repository, you can generate documentation with:</p>
+<pre class="literal-block">
+$ make doc
+</pre>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id7" id="id1" name="id1">1.5&nbsp;&nbsp;&nbsp;Mailing list</a></h2>
+<p>The user discussion, development and all exciting stuff take place in the
+<a class="reference" href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>. You're <em>NOT</em> supposed to subscribe to send emails.</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id8" id="reporting-bugs" name="reporting-bugs">1.6&nbsp;&nbsp;&nbsp;Reporting bugs</a></h2>
+<div class="section">
+<h3><a class="toc-backref" href="#id9" id="bugs" name="bugs">1.6.1&nbsp;&nbsp;&nbsp;Bugs</a></h3>
+<p>Bugs and issues should be reported to the <a class="reference" href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>.</p>
+</div>
+</div>
+</div>
+<div class="section">
+<h1><a class="toc-backref" href="#id10" id="examples" name="examples">2&nbsp;&nbsp;&nbsp;Examples</a></h1>
+<p>Here are some example configurations for various situations.  Please e-mail any
+other examples you have that may be useful to me.</p>
+<div class="section">
+<h2><a class="toc-backref" href="#id11" id="multiple-accounts-with-mutt" name="multiple-accounts-with-mutt">2.1&nbsp;&nbsp;&nbsp;Multiple Accounts with Mutt</a></h2>
+<p>This example shows you how to set up OfflineIMAP to synchronize multiple
+accounts with the mutt mail reader.</p>
+<p>Start by creating a directory to hold your folders by running <tt class="docutils literal"><span class="pre">mkdir</span> <span class="pre">~/Mail</span></tt>.
+Then, in your <tt class="docutils literal"><span class="pre">~/.offlineimaprc</span></tt>, specify:</p>
+<pre class="literal-block">
+accounts = Personal, Work
+</pre>
+<p>Make sure that you have both an [Account Personal] and an [Account Work]
+section.  The local repository for each account must have different localfolder
+path names.  Also, make sure to enable [mbnames].</p>
+<p>In each local repository section, write something like this:</p>
+<pre class="literal-block">
+localfolders = ~/Mail/Personal
+</pre>
+<p>Finally, add these lines to your <tt class="docutils literal"><span class="pre">~/.muttrc</span></tt>:</p>
+<pre class="literal-block">
+source ~/path-to-mbnames-muttrc-mailboxes
+folder-hook Personal set from=&quot;youremail&#64;personal.com&quot;
+folder-hook Work set from=&quot;youremail&#64;work.com&quot;
+set mbox_type=Maildir
+set folder=$HOME/Mail
+spoolfile=+Personal/INBOX
+</pre>
+<p>That's it!</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id12" id="uw-imapd-and-references" name="uw-imapd-and-references">2.2&nbsp;&nbsp;&nbsp;UW-IMAPD and References</a></h2>
+<p>Some users with a UW-IMAPD server need to use OfflineIMAP's &quot;reference&quot; feature
+to get at their mailboxes, specifying a reference of <tt class="docutils literal"><span class="pre">~/Mail</span></tt> or <tt class="docutils literal"><span class="pre">#mh/</span></tt>
+depending on the configuration.  The below configuration from (originally from
+<a class="reference" href="mailto:docwhat&#64;gerf.org">docwhat&#64;gerf.org</a>) shows using a reference of Mail, a nametrans that strips the
+leading Mail/ off incoming folder names, and a folderfilter that limits the
+folders synced to just three:</p>
+<pre class="literal-block">
+[Account Gerf]
+localrepository = GerfLocal
+remoterepository = GerfRemote
+
+[Repository GerfLocal]
+type = Maildir
+localfolders = ~/Mail
+
+[Repository GerfRemote]
+type = IMAP
+remotehost = gerf.org
+ssl = yes
+remoteuser = docwhat
+reference = Mail
+# Trims off the preceeding Mail on all the folder names.
+nametrans = lambda foldername: \
+  re.sub('^Mail/', '', foldername)
+# Yeah, you have to mention the Mail dir, even though it
+# would seem intuitive that reference would trim it.
+folderfilter = lambda foldername: foldername in [
+  'Mail/INBOX',
+  'Mail/list/zaurus-general',
+  'Mail/list/zaurus-dev',
+]
+maxconnections = 1
+holdconnectionopen = no
+</pre>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id13" id="pythonfile-configuration-file-option" name="pythonfile-configuration-file-option">2.3&nbsp;&nbsp;&nbsp;pythonfile Configuration File Option</a></h2>
+<p>You can have OfflineIMAP load up a Python file before evaluating the
+configuration file options that are Python expressions.  This example is based
+on one supplied by Tommi Virtanen for this feature.</p>
+<p>In ~/.offlineimaprc, he adds these options:</p>
+<pre class="literal-block">
+[general]
+pythonfile=~/.offlineimap.py
+[Repository foo]
+foldersort=mycmp
+</pre>
+<p>Then, the ~/.offlineimap.py file will contain:</p>
+<pre class="literal-block">
+prioritized = ['INBOX', 'personal', 'announce', 'list']
+
+def mycmp(x, y):
+  for prefix in prioritized:
+    xsw = x.startswith(prefix)
+    ysw = y.startswith(prefix)
+    if xsw and ysw:
+      return cmp(x, y)
+    elif xsw:
+      return -1
+    elif ysw:
+      return +1
+  return cmp(x, y)
+
+def test_mycmp():
+  import os, os.path
+  folders=os.listdir(os.path.expanduser('~/data/mail/tv&#64;hq.yok.utu.fi'))
+  folders.sort(mycmp)
+  print folders
+</pre>
+<p>This code snippet illustrates how the foldersort option can be customized with a
+Python function from the pythonfile to always synchronize certain folders first.</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id14" id="signals" name="signals">2.4&nbsp;&nbsp;&nbsp;Signals</a></h2>
+<p>OfflineIMAP writes its current PID into <tt class="docutils literal"><span class="pre">~/.offlineimap/pid</span></tt> when it is
+running.  It is not guaranteed that this file will not exist when OfflineIMAP is
+not running.</p>
+<p>&lt;!-- not done yet</p>
+<blockquote>
+You can send SIGINT to OfflineIMAP using this file to kill it.  SIGUSR1 will
+force an immediate resync of all accounts.  This will be ignored for all
+accounts for which a resync is already in progress.</blockquote>
+<p>--&gt;</p>
+</div>
+</div>
+</div>
+</body>
+</html>
