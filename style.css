@@ -1,0 +1,5 @@
+#teach older browsers to render those as block elements
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
