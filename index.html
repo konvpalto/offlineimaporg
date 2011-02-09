@@ -25,10 +25,10 @@
     <h2>Syncing IMAP accounts since 2002</h2>
   </hgroup>
 <nav>
-<a class="reference" href="#ref-links">Links</a>
-<a class="reference" href="#ref-quick-start" >Quick Start</a>
-<a class="reference" href="#ref-documentation" >Documentation</a>
-<a class="reference" href="#ref-development" >Development</a>
+<a class="reference" href="index.html#ref-links">Links</a>
+<a class="reference" href="index.html#ref-quick-start" >Quick Start</a>
+<a class="reference" href="index.html#ref-documentation" >Documentation</a>
+<a class="reference" href="index.html#ref-development" >Development</a>
 </nav>
 </header>
 
@@ -209,6 +209,11 @@ $ make doc
 </article>
 
 <article>
+<header><h2><a id="ref-examples" ></a>Examples</h2></header>
+We have collected some examples for typical use case configurations and some how-tos on the <a href="examples.html">examples page</a>.
+</article>
+
+<article>
 <header><h1><a id="ref-development" ></a>Development</h1></header>
 <h2><a id="ref-mailing-list" ></a>Mailing list</h2>
 <p>The user discussion, development and all exciting stuff take place in the
@@ -218,135 +223,5 @@ $ make doc
 <p>Bugs and issues should be reported to the <a class="reference" href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>.</p>
 </article>
 </section>
-
-<section>
-<header><h1><a id="ref-examples" ></a>Examples</h1></header>
-<p>Here are some example configurations for various situations.  Please e-mail any
-other examples you have that may be useful to me.</p>
-<div class="section">
-<h2><a class="toc-backref" href="#id11" id="multiple-accounts-with-mutt" name="multiple-accounts-with-mutt">2.1&nbsp;&nbsp;&nbsp;Multiple Accounts with Mutt</a></h2>
-<p>This example shows you how to set up OfflineIMAP to synchronize multiple
-accounts with the mutt mail reader.</p>
-<p>Start by creating a directory to hold your folders by running <tt class="docutils literal"><span class="pre">mkdir</span> <span class="pre">~/Mail</span></tt>.
-Then, in your <tt class="docutils literal"><span class="pre">~/.offlineimaprc</span></tt>, specify:</p>
-<pre class="literal-block">
-accounts = Personal, Work
-</pre>
-<p>Make sure that you have both an [Account Personal] and an [Account Work]
-section.  The local repository for each account must have different localfolder
-path names.  Also, make sure to enable [mbnames].</p>
-<p>In each local repository section, write something like this:</p>
-<pre class="literal-block">
-localfolders = ~/Mail/Personal
-</pre>
-<p>Finally, add these lines to your <tt class="docutils literal"><span class="pre">~/.muttrc</span></tt>:</p>
-<pre class="literal-block">
-source ~/path-to-mbnames-muttrc-mailboxes
-folder-hook Personal set from=&quot;youremail&#64;personal.com&quot;
-folder-hook Work set from=&quot;youremail&#64;work.com&quot;
-set mbox_type=Maildir
-set folder=$HOME/Mail
-spoolfile=+Personal/INBOX
-</pre>
-<p>That's it!</p>
-</div>
-<div class="section">
-<h2><a class="toc-backref" href="#id12" id="uw-imapd-and-references" name="uw-imapd-and-references">2.2&nbsp;&nbsp;&nbsp;UW-IMAPD and References</a></h2>
-<p>Some users with a UW-IMAPD server need to use OfflineIMAP's &quot;reference&quot; feature
-to get at their mailboxes, specifying a reference of <tt class="docutils literal"><span class="pre">~/Mail</span></tt> or <tt class="docutils literal"><span class="pre">#mh/</span></tt>
-depending on the configuration.  The below configuration from (originally from
-<a class="reference" href="mailto:docwhat&#64;gerf.org">docwhat&#64;gerf.org</a>) shows using a reference of Mail, a nametrans that strips the
-leading Mail/ off incoming folder names, and a folderfilter that limits the
-folders synced to just three:</p>
-<pre class="literal-block">
-[Account Gerf]
-localrepository = GerfLocal
-remoterepository = GerfRemote
-
-[Repository GerfLocal]
-type = Maildir
-localfolders = ~/Mail
-
-[Repository GerfRemote]
-type = IMAP
-remotehost = gerf.org
-ssl = yes
-remoteuser = docwhat
-reference = Mail
-# Trims off the preceeding Mail on all the folder names.
-nametrans = lambda foldername: \
-  re.sub('^Mail/', '', foldername)
-# Yeah, you have to mention the Mail dir, even though it
-# would seem intuitive that reference would trim it.
-folderfilter = lambda foldername: foldername in [
-  'Mail/INBOX',
-  'Mail/list/zaurus-general',
-  'Mail/list/zaurus-dev',
-]
-maxconnections = 1
-holdconnectionopen = no
-</pre>
-</div>
-<div class="section">
-<h2><a class="toc-backref" href="#id13" id="pythonfile-configuration-file-option" name="pythonfile-configuration-file-option">2.3&nbsp;&nbsp;&nbsp;pythonfile Configuration File Option</a></h2>
-<p>You can have OfflineIMAP load up a Python file before evaluating the
-configuration file options that are Python expressions.  This example is based
-on one supplied by Tommi Virtanen for this feature.</p>
-<p>In ~/.offlineimaprc, he adds these options:</p>
-<pre class="literal-block">
-[general]
-pythonfile=~/.offlineimap.py
-[Repository foo]
-foldersort=mycmp
-</pre>
-<p>Then, the ~/.offlineimap.py file will contain:</p>
-<pre class="literal-block">
-prioritized = ['INBOX', 'personal', 'announce', 'list']
-
-def mycmp(x, y):
-  for prefix in prioritized:
-    xsw = x.startswith(prefix)
-    ysw = y.startswith(prefix)
-    if xsw and ysw:
-      return cmp(x, y)
-    elif xsw:
-      return -1
-    elif ysw:
-      return +1
-  return cmp(x, y)
-
-def test_mycmp():
-  import os, os.path
-  folders=os.listdir(os.path.expanduser('~/data/mail/tv&#64;hq.yok.utu.fi'))
-  folders.sort(mycmp)
-  print folders
-</pre>
-<p>This code snippet illustrates how the foldersort option can be customized with a
-Python function from the pythonfile to always synchronize certain folders first.</p>
-</div>
-<div class="section">
-<h2><a class="toc-backref" href="#id14" id="use-with-evolution" name="use-with-evolution">2.4&nbsp;&nbsp;&nbsp;Use With Evolution</a></h2>
-<p>OfflineIMAP can work with Evolution. To do so, first configure your OfflineIMAP account to have sep = / in its configuration. Then, configure Evolution with the "Maildir-format mail directories" server type. For the path, you will need to specify the name of the top-level folder inside your OfflineIMAP storage location.
-</p>
-<p>
-So from courierIMAP to Evolution:
-<br>
-sep = /
-nametrans = lambda foldername: re.sub('^INBOX.', , foldername)
-</p>
-<div class="section">
-<h2><a class="toc-backref" href="#id15" id="signals" name="signals">2.5&nbsp;&nbsp;&nbsp;Signals</a></h2>
-<p>OfflineIMAP writes its current PID into <tt class="docutils literal"><span class="pre">~/.offlineimap/pid</span></tt> when it is
-running.  It is not guaranteed that this file will not exist when OfflineIMAP is
-not running.</p>
-<p>&lt;!-- not done yet</p>
-<blockquote>
-You can send SIGINT to OfflineIMAP using this file to kill it.  SIGUSR1 will
-force an immediate resync of all accounts.  This will be ignored for all
-accounts for which a resync is already in progress.</blockquote>
-<p>--&gt;</p></div>
-</section>
-
-
 </body>
 </html>
