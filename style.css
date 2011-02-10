@@ -13,11 +13,11 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
   font-size: x-large;
-  margin: 0.3em 0em 0.3em 0em;
+  margin: 1.3em 0em 0.3em 0em;
 }
 h2 {
   font-size: large;
-  margin: 0.2em 0em;
+  margin: 1.2em 0em 0.7em 0.1em;
 }
 
 body>header {
@@ -30,16 +30,22 @@ body>header {
 body>header a{
   text-decoration: none;
   color: black;
+  font-family: 'Tahoma', 'arial', 'serif';
 }
 
 body>header>nav{
   margin-top: 1em;
-  margin-bottom: 1px;
+  margin-bottom: 0px;
 }
 
 body>header>nav>a{
   background-color: #FF914D;
-  padding: 1px 5px;
+  padding: 2px 8px;
+  -moz-border-radius: 10px 10px 0px 0px / 5px 5px 0px 0px;
+  border-radius: 10px 10px 0px 0px / 5px 5px 0px 0px;
+  border: red solid 2px;
+  border-bottom: 0px;
+  font-size: 1.1em;
 }
 
 body>header>nav>a:hover{
@@ -57,7 +63,11 @@ body>header h2 {
 }
 
 section#content {
-  margin: 1em 0em 1em 0.5em;
+  margin: 1em 0.5em 1em 0.5em;
+}
+
+#pre {
+  font-color: blue;
 }
 
 #linktable td{
