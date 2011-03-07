@@ -46,6 +46,10 @@
 <article>
 <header><h2><a id="reporting-bugs"></a>Reporting bugs</h2><header>
 <p>Bugs and issues should be reported to the <a class="reference" href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>. Do make sure you report the OfflineIMAP version you are using as well as the brand of IMAP server involved. If you are using a stable version that came with your distribution, we would appreciate testing to make sure the bug hasn't been fixed already.</p>
+<header>How to create a debug log</header>
+<p>If you get a crash with offlineimap, we would appreciate if you send in a debug log, so we can analyze the reasons for the crash. You can create a debug log by appending "-1 -d imap -l debug.log" to your offlineimap invocation. It would be great if you could make that log available to us so we can analyze it and prevent the situation from happening again (or at least spit out nicer error messages).
+<b>Take note that the debug.log could contain passwords and email contents though. So either remove those or make the log available to one of the developers in private.</b></p>
+
 </article>
 
 <article>
