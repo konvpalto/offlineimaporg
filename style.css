@@ -68,7 +68,7 @@ section#content {
 }
 
 #pre {
-  font-color: blue;
+  color: blue;
 }
 
 #linktable td{
@@ -80,6 +80,9 @@ aside#commits_rss {
   float: right;
   overflow: hidden;
   margin: 0px;
+  padding: 5px;
+  width: 170px;
+  border: solid gray 1px;
 }
 /* powered by... */
 aside#commits_rss > p {

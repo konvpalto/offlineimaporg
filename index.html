@@ -14,8 +14,9 @@
   }
 </script>
 <![endif]-->
-<link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="style.css" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://static.oswatershed.org/js/package_badge.js" type="text/javascript" ></script>
 </head>
 
 <body>
@@ -33,22 +34,13 @@
 </nav>
 </header>
 
-
 <section id="content">
 <!-- A sidebox that shows the latest Commits-->
 <aside id="commits_rss">
-<script type="text/javascript" src="http://feedoor.com/js/publish/rss2html.js"></script>
-<script type="text/javascript">
-var feedURL = 'http://feedoor.com/api/feed';
-var strChar = '0';
-var Dformat = '2';
-var limit = '10';
-var uri = 'offlineimapommits';
-var style = 'adrian';
-new getRSS ();
-</script><p>Powered By <a href="http://www.feedoor.com" target="_blank">Feedoor.com</a></p>
+Recent commits:
+<script src="http://app.feed.informer.com/digest3/SQV8RB8YY2.js">)<noscript>This requires JavaScript</noscript>
+</script>
 </aside>
-
 
 <article>
 <header><h1><a id="ref-description"></a>Welcome to the OfflineIMAP project</h1></header>
@@ -178,7 +170,7 @@ perfectly-honed manual!  However, the default settings are not tuned for maximum
 <h2>Installation</h2>
 The full <a href="https://github.com/nicolas33/offlineimap/blob/master/docs/INSTALL.rst#readme">installation instructions</a> are part of the source code repository and can be viewed online.
 
-<h2>Invocation & Configuration</h2>
+<h2>Invocation &amp; Configuration</h2>
 
 We have the <a href="https://github.com/nicolas33/offlineimap/blob/master/docs/MANUAL.rst#readme">OfflineImap man page</a> online too, as well as a <a href="https://github.com/nicolas33/offlineimap/blob/master/docs/FAQ.rst#readme">FAQ section</a>. Do peruse these as they might help you solve your problems and tweak OfflineIMAP.
 
@@ -191,16 +183,17 @@ We have the <a href="https://github.com/nicolas33/offlineimap/blob/master/docs/M
  <td width="90%"><ul><li><a href="https://github.com/nicolas33/offlineimap">github home</a><br/><tt>git clone git://github.com/nicolas33/offlineimap.git</tt></li>
    <li><a href="https://github.com/nicolas33/offlineimap/downloads">release tarballs</a></li>
    <li>Via your distributions package manager for
-            <p><a href="http://packages.debian.org/search?keywords=offlineimap">Debian</a>, <a href="http://packages.ubuntu.com/search?keywords=offlineimap&searchon=names">Ubuntu</a>, Fedora, ...</p>
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
-            <script src="http://static.oswatershed.org/js/package_badge.js" type="text/javascript"></script>
-            <script>document.write('<div id="osw_offlineimap">These versions are currently available (courtesy to <a href="http://oswatershed.org">oswatershed</a>):<br/>');
-                    $(document).ready(function(){ package_badge("offlineimap", "#osw_offlineimap"); });</script></div>
+            <p><a href="http://packages.debian.org/search?keywords=offlineimap">Debian</a>, <a href="http://packages.ubuntu.com/search?keywords=offlineimap&amp;searchon=names">Ubuntu</a>, Fedora, ...</p>
+            <div id="osw_offlineimap">
+            <script>document.write('These versions are currently available (courtesy to <a href="http://oswatershed.org">oswatershed</a>):<br/>');
+              $(document).ready(function(){ package_badge("offlineimap", "#osw_offlineimap"); });
+            </script>
+            </div>
    </li>
    </ul>
  </td>
 </tr><tr>
- <td>Bugs & Discussion</td>
+ <td>Bugs &amp; Discussion</td>
  <td><ul><li><a href='mailto&#58;o%6&#54;flin%65&#105;map&#45;p&#114;%6Fj%65ct&#64;l&#105;s&#116;s&#46;&#97;liot%68&#46;de&#37;6&#50;i&#97;n&#46;%6F%72%67'>o&#102;flineim&#97;p&#45;proj&#101;ct&#64;lists&#46;&#97;&#108;&#105;oth&#46;debian&#46;&#111;rg</a>;<br/>mailing list <a href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">portal</a></li>
          <li><a href="http://dir.gmane.org/gmane.mail.imap.offlineimap.general">list archive (Gmane)</a></li>
          <li><a href="nntp://news.gmane.org/gmane.mail.imap.offlineimap.general">access via nntp (Usenet)</a></li>
