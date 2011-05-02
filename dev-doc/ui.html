@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>offlineimap.ui – A pluggable logging system &mdash; OfflineImap v6.3.3 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '6.3.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OfflineImap v6.3.3 documentation" href="index.html" />
+    <link rel="next" title="The offlineimap ‘binary’ command line options" href="offlineimap.html" />
+    <link rel="prev" title="offlineimap.repository – Email repositories" href="repository.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="offlineimap.html" title="The offlineimap ‘binary’ command line options"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="repository.html" title="offlineimap.repository – Email repositories"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OfflineImap v6.3.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="offlineimap-ui-a-pluggable-logging-system">
+<h1><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A pluggable logging system<a class="headerlink" href="#offlineimap-ui-a-pluggable-logging-system" title="Permalink to this headline">¶</a></h1>
+<p>OfflineImap has various ui systems, that can be selected. They offer various functionalities. They must implement all functions that the <tt class="xref py py-class docutils literal"><span class="pre">offlineimap.ui.UIBase</span></tt> offers. Early on, the ui must be set using <a class="reference internal" href="#offlineimap.ui.getglobalui" title="offlineimap.ui.getglobalui"><tt class="xref py py-meth docutils literal"><span class="pre">getglobalui()</span></tt></a></p>
+<dl class="staticmethod">
+<dt id="offlineimap.ui.setglobalui">
+<em class="property">static </em><tt class="descclassname">ui.</tt><tt class="descname">setglobalui</tt><big>(</big><em>newui</em><big>)</big><a class="headerlink" href="#offlineimap.ui.setglobalui" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the global ui object to be used for logging</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="offlineimap.ui.getglobalui">
+<em class="property">static </em><tt class="descclassname">ui.</tt><tt class="descname">getglobalui</tt><big>(</big><big>)</big><a class="headerlink" href="#offlineimap.ui.getglobalui" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current ui object</p>
+</dd></dl>
+
+<div class="section" id="base-ui-plugin">
+<h2>Base UI plugin<a class="headerlink" href="#base-ui-plugin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="offlineimap.ui.UIBase.UIBase">
+<em class="property">class </em><tt class="descname">UIBase</tt><big>(</big><em>s</em>, <em>config</em>, <em>verbose=0</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.init_banner">
+<tt class="descname">init_banner</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.init_banner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the UI starts.  Must be called before any other UI
+call except isusable().  Displays the copyright banner.  This is
+where the UI should do its setup &#8211; TK, for instance, would
+create the application window here.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.isusable">
+<tt class="descname">isusable</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.isusable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if this UI object is usable in the current
+environment.  For instance, an X GUI would return true if it&#8217;s
+being run in X with a valid DISPLAY setting, and false otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.registerthread">
+<tt class="descname">registerthread</tt><big>(</big><em>s</em>, <em>account</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.registerthread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a hint to UIs about which account this particular
+thread is processing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.skippingfolder">
+<tt class="descname">skippingfolder</tt><big>(</big><em>s</em>, <em>folder</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.skippingfolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a folder sync operation is started.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.sleep">
+<tt class="descname">sleep</tt><big>(</big><em>s</em>, <em>sleepsecs</em>, <em>siglistener</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function does not actually output anything, but handles
+the overall sleep, dealing with updates as necessary.  It will,
+however, call sleeping() which DOES output something.</p>
+<p>Returns 0 if timeout expired, 1 if there is a request to cancel
+the timer, and 2 if there is a request to abort the program.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.sleeping">
+<tt class="descname">sleeping</tt><big>(</big><em>s</em>, <em>sleepsecs</em>, <em>remainingsecs</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.sleeping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sleep for sleepsecs, display remainingsecs to go.</p>
+<p>Does nothing if sleepsecs &lt;= 0.
+Display a message on the screen every 10 seconds.</p>
+<p>This implementation in UIBase does not support this, but some
+implementations return 0 for successful sleep and 1 for an
+&#8216;abort&#8217;, ie a request to sync immediately.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.syncingfolder">
+<tt class="descname">syncingfolder</tt><big>(</big><em>s</em>, <em>srcrepos</em>, <em>srcfolder</em>, <em>destrepos</em>, <em>destfolder</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.syncingfolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a folder sync operation is started.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.terminate">
+<tt class="descname">terminate</tt><big>(</big><em>s</em>, <em>exitstatus=0</em>, <em>errortitle=None</em>, <em>errormsg=None</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.terminate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to terminate the application.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.threadException">
+<tt class="descname">threadException</tt><big>(</big><em>s</em>, <em>thread</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.threadException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a thread has terminated with an exception.
+The argument is the ExitNotifyThread that has so terminated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.threadExited">
+<tt class="descname">threadExited</tt><big>(</big><em>s</em>, <em>thread</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.threadExited" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a thread has exited normally.  Many UIs will
+just ignore this.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.unregisterthread">
+<tt class="descname">unregisterthread</tt><big>(</big><em>s</em>, <em>thr</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.unregisterthread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recognizes a thread has exited.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A pluggable logging system</a><ul>
+<li><a class="reference internal" href="#base-ui-plugin">Base UI plugin</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="repository.html"
+                        title="previous chapter"><tt class="docutils literal docutils literal"><span class="pre">offlineimap.repository</span></tt> &#8211; Email repositories</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="offlineimap.html"
+                        title="next chapter">The offlineimap &#8216;binary&#8217; command line options</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/ui.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="offlineimap.html" title="The offlineimap ‘binary’ command line options"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="repository.html" title="offlineimap.repository – Email repositories"
+             >previous</a> |</li>
+        <li><a href="index.html">OfflineImap v6.3.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2002-2010, John Goerzen.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>
