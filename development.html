@@ -47,20 +47,10 @@ href='mailto&#58;o%6&#54;flin%65&#105;map&#45;p&#114;%6Fj%65ct&#64;l&#105;s&#116
 
 <p>You do <em>NOT</em> need to be subscribed to send emails to this list. Also,
 you're expected to: <ol>
-	<li>copy every body on each reply;</li>
+	<li>keep everyone on the CC list;</li>
 	<li>use the plain TEXT format for your mail (no HTML).</li>
 	</ol>
 </p>
-
-</article>
-
-<article>
-<header><h2><a id="reporting-bugs"></a>Reporting bugs</h2><header>
-<p>Bugs and issues should be reported to the <a class="reference" href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>. Do make sure you report the OfflineIMAP version you are using as well as the brand of IMAP server involved. If you are using a stable version that came with your distribution, we would appreciate testing to make sure the bug hasn't been fixed already.</p>
-<header><h3>How to create a debug log</h3></header>
-<p>If you get a crash with offlineimap, we would appreciate if you send in a debug log, so we can analyze the reasons for the crash. You can create a debug log by appending "-1 -d imap -l debug.log" to your offlineimap invocation. It would be great if you could make that log available to us so we can analyze it and prevent the situation from happening again (or at least spit out nicer error messages).
-<b>Take note that the debug.log could contain passwords and email contents though. So either remove those or make the log available to one of the developers in private.</b></p>
-
 </article>
 
 <article>
@@ -68,8 +58,22 @@ you're expected to: <ol>
 <p>Our git repository home page can be found on its <a href="https://github.com/nicolas33/offlineimap">github home</a>. Grab the current code with a <tt>git clone git://github.com/nicolas33/offlineimap.git</tt>.</p>
 
 There are several branches. <emph>Master<emph> represents the current stable branch or what will be the next stable release. <emph>Next<emph> is where development happens. This is what will be merged into Master for the next major release. Finally <emph>PU<emph> is a feature branch which hosts crazy features that might or might not make it into some release. This branch could easily be reset at any point in time.
-<p><p>
 </article>
+
+<article>
+<header><h1><a id="ref-reporting-bugs">Reporting bugs and issues</a></h1></header>
+<p>Unfortunately no program is bug free. This is true for all imap servers, and even for OfflineImap. If something goes wrong and you want to report a bug, this is what you should do:</p>
+
+<ol><li>If you are using a stable version that came with your distribution, we would appreciate testing to make sure the bug hasn't been fixed already.</li>
+<li>Take a debug log of the run that exposes the issue at hand and that does as little as possible otherwise (e.g. by using -f INBOX to only sync the INBOX if that is where your error occurs). You can create a debug log file by using:
+<tt>-d imap -d debug.log</tt> (or -d imap,maildir) if you suspect the problem is with how maildirs are handled.</li>
+<li>This produces a potentially very large log file, <b>including all your IMAP communication. That means that your username and your password will likely be included in the clear in that debug log!</b> Make sure you clean the file from it before sending it in.</li>
+<li>Do make the file available (if big) or mail it directly to either the <a class="reference" href="http://lists.alioth.debian.org/mailman/listinfo/offlineimap-project">mailing list</a>, or -- if your mails contain sensitive information that you don't want to be publically archived -- make them available to a developer of your choice.</li>
+</ol>
+
+<p><b>AGAIN: Take note that the debug.log will contain passwords and email contents though. So either remove those or make the log available to one of the developers in private if that concerns you.</b></p>
+</article>
+
 </section>
 </body>
 </html>

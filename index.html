@@ -44,43 +44,26 @@ Recent commits:
 
 <article>
 <header><h1><a id="ref-description"></a>Welcome to the OfflineIMAP project</h1></header>
-<p>OfflineIMAP is a tool to simplify your e-mail reading. You can read
-the same mailbox from multiple computers. You get a current copy of your
-messages on each computer, and changes you make one place will be
-visible on all other systems. For instance, you can delete a message on
-your home computer, and it will appear deleted on your work computer as
-well. OfflineIMAP is also useful if you want to use a mail reader that
-does not have IMAP support, has poor IMAP support, or does not provide
-disconnected operation.</p>
+<p>OfflineImap operates on a REMOTE and a LOCAL repository and synchronizes emails between them, so that you can read the same mailbox from multiple computers. The REMOTE repository is some IMAP server, while LOCAL can be either a local Maildir or another IMAP server.</p>
+
+<p>Missing folders will be automatically created on the LOCAL side, however NO folders will currently be created on the REMOTE repository automatically (it will sync your emails from local folders if corresponding REMOTE folders already exist).</p>
+
+<p>Configuring OfflineImap in basic mode is quite easy, however it provides an amazing amount of flexibility for those with special needs. You can specify the number of connections to your IMAP server, use arbitrary python functions (including regular expressions) to limit the number of folders being synchronized. You can transpose folder names between repositories using any python function, to mangle and modify folder names on the LOCAL repository. There are six different ways to hand the IMAP password to OfflineImap from console input, specifying in the configuration file, .netrc support, specifying in a separate file, to using arbitrary python functions that somehow return the password. Finally, you can use IMAPs IDLE infrastructure to always keep a connection to your IMAP server open and immediately be notified (and synchronized) when a new mail arrives (aka Push mail).</p>
+
+<p>Most configuration is done via the configuration file. However, any setting can also be overriden by command line options handed to OfflineIMAP.</p>
+
+<p>OfflineImap is well suited to be frequently invoked by cron jobs, or can run in daemon mode to periodically check your email (however, it will exit in some error situations).</p>
+
+<p>OfflineIMAP was originally written
+by <a href="http://www.complete.org/JohnGoerzen">John Goerzen</a>, who
+retired from maintaining it at then end of 2010.  It is now maintained
+by Nicolas Sebrecht.  We are grateful for the great job John did and for having shared his project with us.</p>
 
 <p>It is a Free Software project licensed under
 the <a href="https://github.com/nicolas33/offlineimap/raw/master/COPYING">GNU
 General Public License (v2+)</a>. You can download it for free, and you
 can modify it. In fact, you are encouraged to contribute changes back to us.</p>
 
-<p>OfflineIMAP is FAST; it features a multi-threaded synchronization
-algorithm that can dramatically speed up performance in many situations
-by synchronizing several different things simultaneously. The defaults
-are very conservative, so you might want to check the configuration page
-to learn how to enable multithreaded syncing.</p>
-
-<p>OfflineIMAP is FLEXIBLE; you can customize which folders are synced via regular
-expressions, lists, or Python expressions; a versatile and comprehensive
-configuration file is used to control behavior; two user interfaces are
-built-in; fine-tuning of synchronization performance is possible; internal or
-external automation is supported; SSL and PREAUTH tunnels are both supported;
-offline (or &quot;unplugged&quot;) reading is supported; and esoteric IMAP features are
-supported to ensure compatibility with the widest variety of IMAP servers.</p>
-
-<p>OfflineIMAP is SAFE; it absolutely attempts to never ever lose one of
-your mails under any circumstances. Of course, legally speaking,
-OfflineIMAP comes with no warranty, so I am not responsible if this
-turns out to be wrong.</p>
-
-<p>OfflineIMAP was originally written
-by <a href="http://www.complete.org/JohnGoerzen">John Goerzen</a>, who
-retired from maintaining it at then end of 2010.  It is now maintained
-by Nicolas Sebrecht.  We are grateful for the great job John did and for having shared his project with us.</p>
 </article>
 
 <article>
@@ -174,6 +157,15 @@ The full <a href="https://github.com/nicolas33/offlineimap/blob/master/docs/INST
 
 We have the <a href="https://github.com/nicolas33/offlineimap/blob/master/docs/MANUAL.rst#readme">OfflineImap man page</a> online too, as well as a <a href="https://github.com/nicolas33/offlineimap/blob/master/docs/FAQ.rst#readme">FAQ section</a>. Do peruse these as they might help you solve your problems and tweak OfflineIMAP.
 
+<h2>Developer Documentation</h2>
+The full <a href="/dev-doc">developer documentation</a> can be viewed online. It contains the code documentation of all relevant functions in the OfflineImap source code base and should help in case you plan to modify or improve OfflineImap.
+
+<h2>Local documentation</h2>
+
+<p>If you prefer to read the documentation offline, you can find them in
+your git repository checkout in the <emph>docs</emph> directory. Generate the documentation with: <tt>make doc</tt> and <tt>make dev-doc</tt>.</p>
+</article>
+
 <article>
 <header><h1><a id="ref-links">Important links</a></h1>All important links at a glance...</header>
 
@@ -198,21 +190,13 @@ We have the <a href="https://github.com/nicolas33/offlineimap/blob/master/docs/M
          <li><a href="http://dir.gmane.org/gmane.mail.imap.offlineimap.general">list archive (Gmane)</a></li>
          <li><a href="nntp://news.gmane.org/gmane.mail.imap.offlineimap.general">access via nntp (Usenet)</a></li>
 
-         <li>Bugs should be reported at the mailing list.</li>
+         <li>Bugs <a href="development.html#ref-reporting-bugs">should
+         be reported</a> to the mailing list.</li>
        </ul>
  </td>
 </tr><tr><td>Related projects</td><td><ul><li><a href="http://notmuchmail.org">notmuch email client</a></li></ul></td>
 </tr><tr><td></td><td></td>
 </tr></table>
-</article>
-
-<h2>Local documentation</h2>
-
-<p>If you prefer to read these documents offline, you can find them in
-your git repository checkout in the <emph>docs</emph> directory.</p>
-
-<p>Generate the documentation with:</p>
-<pre class="literal-block">$ make doc</pre>
 </article>
 
 <article>
