@@ -7,22 +7,22 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>offlineimap.ui – A pluggable logging system &mdash; OfflineImap v6.3.3 documentation</title>
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>offlineimap.ui – A pluggable logging system &mdash; OfflineImap v6.3.4 documentation</title>
+    <link rel="stylesheet" href="static/default.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '6.3.3',
+        VERSION:     '6.3.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="OfflineImap v6.3.3 documentation" href="index.html" />
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="top" title="OfflineImap v6.3.4 documentation" href="index.html" />
     <link rel="next" title="The offlineimap ‘binary’ command line options" href="offlineimap.html" />
     <link rel="prev" title="offlineimap.repository – Email repositories" href="repository.html" /> 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="repository.html" title="offlineimap.repository – Email repositories"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">OfflineImap v6.3.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">OfflineImap v6.3.4 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -69,6 +69,40 @@
 <dt id="offlineimap.ui.UIBase.UIBase">
 <em class="property">class </em><tt class="descname">UIBase</tt><big>(</big><em>s</em>, <em>config</em>, <em>verbose=0</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.copyingmessage">
+<tt class="descname">copyingmessage</tt><big>(</big><em>uid</em>, <em>src</em>, <em>destfolder</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.copyingmessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output a log line stating which message we copy</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.error">
+<tt class="descname">error</tt><big>(</big><em>exc</em>, <em>exc_traceback=None</em>, <em>msg=None</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log a message at severity level ERROR</p>
+<p>Log Exception &#8216;exc&#8217; to error log, possibly prepended by a preceding
+error &#8220;msg&#8221;, detailing at what point the error occurred.</p>
+<p>In debug mode, we also output the full traceback that occurred
+if one has been passed in via sys.info()[2].</p>
+<p>Also save the Exception to a stack that can be output at the end
+of the sync run when offlineiamp exits. It is recommended to
+always pass in exceptions if possible, so we can give the user
+the best debugging info.</p>
+<p>One example of such a call might be:</p>
+<blockquote>
+<dl class="docutils">
+<dt>ui.error(exc, sys.exc_info()[2], msg=&#8221;While syncing Folder %s in &#8220;</dt>
+<dd>&#8220;repo %s&#8221;)</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.getnicename">
+<tt class="descname">getnicename</tt><big>(</big><em>s</em>, <em>object</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.getnicename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of a repository or Folder as string</p>
+<p>(IMAP, Gmail, Maildir, etc...)</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="offlineimap.ui.UIBase.UIBase.init_banner">
 <tt class="descname">init_banner</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.init_banner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when the UI starts.  Must be called before any other UI
@@ -100,12 +134,19 @@ thread is processing.</p>
 
 <dl class="method">
 <dt id="offlineimap.ui.UIBase.UIBase.sleep">
-<tt class="descname">sleep</tt><big>(</big><em>s</em>, <em>sleepsecs</em>, <em>siglistener</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.sleep" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sleep</tt><big>(</big><em>s</em>, <em>sleepsecs</em>, <em>account</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.sleep" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function does not actually output anything, but handles
 the overall sleep, dealing with updates as necessary.  It will,
 however, call sleeping() which DOES output something.</p>
-<p>Returns 0 if timeout expired, 1 if there is a request to cancel
-the timer, and 2 if there is a request to abort the program.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body">0/False if timeout expired, 1/2/True if there is a
+request to cancel the timer.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -127,7 +168,7 @@ implementations return 0 for successful sleep and 1 for an
 
 <dl class="method">
 <dt id="offlineimap.ui.UIBase.UIBase.terminate">
-<tt class="descname">terminate</tt><big>(</big><em>s</em>, <em>exitstatus=0</em>, <em>errortitle=None</em>, <em>errormsg=None</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.terminate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">terminate</tt><big>(</big><em>exitstatus=0</em>, <em>errortitle=None</em>, <em>errormsg=None</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.terminate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called to terminate the application.</p>
 </dd></dl>
 
@@ -178,7 +219,7 @@ just ignore this.</p>
                         title="next chapter">The offlineimap &#8216;binary&#8217; command line options</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/ui.txt"
+    <li><a href="sources/ui.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -210,7 +251,7 @@ just ignore this.</p>
         <li class="right" >
           <a href="repository.html" title="offlineimap.repository – Email repositories"
              >previous</a> |</li>
-        <li><a href="index.html">OfflineImap v6.3.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">OfflineImap v6.3.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -7,22 +7,22 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>offlineimap.repository – Email repositories &mdash; OfflineImap v6.3.3 documentation</title>
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>offlineimap.repository – Email repositories &mdash; OfflineImap v6.3.4 documentation</title>
+    <link rel="stylesheet" href="static/default.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '6.3.3',
+        VERSION:     '6.3.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="OfflineImap v6.3.3 documentation" href="index.html" />
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="top" title="OfflineImap v6.3.4 documentation" href="index.html" />
     <link rel="next" title="offlineimap.ui – A pluggable logging system" href="ui.html" />
     <link rel="prev" title="Welcome to offlineimaps‘s documentation" href="index.html" /> 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="index.html" title="Welcome to offlineimaps‘s documentation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">OfflineImap v6.3.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">OfflineImap v6.3.4 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -136,17 +136,17 @@ after a sync run.</p>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.getconf">
-<tt class="descname">getconf</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x17c8140&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconf" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getconf</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x2633230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.getconfboolean">
-<tt class="descname">getconfboolean</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x17c8140&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconfboolean" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getconfboolean</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x2633230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconfboolean" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.getconffloat">
-<tt class="descname">getconffloat</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x17c8140&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconffloat" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getconffloat</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x2633230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconffloat" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -156,7 +156,7 @@ after a sync run.</p>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.getconfint">
-<tt class="descname">getconfint</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x17c8140&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconfint" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getconfint</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x2633230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconfint" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -230,11 +230,11 @@ for the threads to terminate.</p>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.syncfoldersto">
-<tt class="descname">syncfoldersto</tt><big>(</big><em>dest</em>, <em>copyfolders</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.syncfoldersto" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">syncfoldersto</tt><big>(</big><em>dest</em>, <em>status</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.syncfoldersto" title="Permalink to this definition">¶</a></dt>
 <dd><p>Syncs the folders in this repository to those in dest.
 It does NOT sync the contents of those folders.</p>
-<p>For every time dest.makefolder() is called, also call makefolder()
-on each folder in copyfolders.</p>
+<p>Whenever makefolder() is called, also call makefolder() on status
+folder.</p>
 </dd></dl>
 
 </dd></dl>
@@ -255,10 +255,8 @@ on each folder in copyfolders.</p>
 <dt id="offlineimap.repository.GmailRepository">
 <em class="property">class </em><tt class="descname">GmailRepository</tt><big>(</big><em>reposname</em>, <em>account</em><big>)</big><a class="headerlink" href="#offlineimap.repository.GmailRepository" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gmail IMAP repository.</p>
-<dl class="docutils">
-<dt>Uses hard-coded host name and port, see:</dt>
-<dd><a class="reference external" href="http://mail.google.com/support/bin/answer.py?answer=78799&amp;topic=12814">http://mail.google.com/support/bin/answer.py?answer=78799&amp;topic=12814</a></dd>
-</dl>
+<p>Falls back to hard-coded gmail host name and port, if none were specified:
+<a class="reference external" href="http://mail.google.com/support/bin/answer.py?answer=78799&amp;topic=12814">http://mail.google.com/support/bin/answer.py?answer=78799&amp;topic=12814</a></p>
 <p>Initialize a GmailRepository object.</p>
 </dd></dl>
 
@@ -284,7 +282,8 @@ to the directory holding all the Maildir directories.</p>
 <dt id="offlineimap.folder.Base.BaseFolder.addmessageflags">
 <tt class="descname">addmessageflags</tt><big>(</big><em>uid</em>, <em>flags</em><big>)</big><a class="headerlink" href="#offlineimap.folder.Base.BaseFolder.addmessageflags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the specified flags to the message&#8217;s flag set.  If a given
-flag is already present, it will not be duplicated.</p>
+flag is already present, it will not be duplicated.
+:param flags: A set() of flags</p>
 </dd></dl>
 
 <dl class="method">
@@ -355,7 +354,8 @@ InstanceLimitedThreads.</p>
 <dl class="method">
 <dt id="offlineimap.folder.Base.BaseFolder.getfolderbasename">
 <tt class="descname">getfolderbasename</tt><big>(</big><big>)</big><a class="headerlink" href="#offlineimap.folder.Base.BaseFolder.getfolderbasename" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return base file name of file to store Status/UID info in</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="offlineimap.folder.Base.BaseFolder.getfullname">
@@ -574,13 +574,6 @@ statusfolder.</p>
 <dd><p>Returns True if uid exists</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="offlineimap.folder.Base.BaseFolder.waitforthread">
-<tt class="descname">waitforthread</tt><big>(</big><big>)</big><a class="headerlink" href="#offlineimap.folder.Base.BaseFolder.waitforthread" title="Permalink to this definition">¶</a></dt>
-<dd><p>For threading folders, waits until there is a resource available
-before firing off a thread.  For all others, returns immediately.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -600,13 +593,13 @@ before firing off a thread.  For all others, returns immediately.</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to <tt class="docutils literal docutils literal"><span class="pre">offlineimaps</span></tt>&#8216;s documentation</a></p>
+                        title="previous chapter">Welcome to <tt class="docutils literal docutils literal docutils literal"><span class="pre">offlineimaps</span></tt>&#8216;s documentation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="ui.html"
-                        title="next chapter"><tt class="docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A pluggable logging system</a></p>
+                        title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A pluggable logging system</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/repository.txt"
+    <li><a href="sources/repository.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -638,7 +631,7 @@ before firing off a thread.  For all others, returns immediately.</p>
         <li class="right" >
           <a href="index.html" title="Welcome to offlineimaps‘s documentation"
              >previous</a> |</li>
-        <li><a href="index.html">OfflineImap v6.3.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">OfflineImap v6.3.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
