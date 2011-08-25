@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>offlineimap.ui – A pluggable logging system &mdash; OfflineImap v6.3.4 documentation</title>
+    <title>offlineimap.ui – A flexible logging system &mdash; OfflineImap v6.3.4 documentation</title>
     <link rel="stylesheet" href="static/default.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -48,8 +48,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="offlineimap-ui-a-pluggable-logging-system">
-<h1><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A pluggable logging system<a class="headerlink" href="#offlineimap-ui-a-pluggable-logging-system" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="offlineimap-ui-a-flexible-logging-system">
+<h1><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A flexible logging system<a class="headerlink" href="#offlineimap-ui-a-flexible-logging-system" title="Permalink to this headline">¶</a></h1>
 <p>OfflineImap has various ui systems, that can be selected. They offer various functionalities. They must implement all functions that the <tt class="xref py py-class docutils literal"><span class="pre">offlineimap.ui.UIBase</span></tt> offers. Early on, the ui must be set using <a class="reference internal" href="#offlineimap.ui.getglobalui" title="offlineimap.ui.getglobalui"><tt class="xref py py-meth docutils literal"><span class="pre">getglobalui()</span></tt></a></p>
 <dl class="staticmethod">
 <dt id="offlineimap.ui.setglobalui">
@@ -124,6 +124,12 @@ being run in X with a valid DISPLAY setting, and false otherwise.</p>
 <tt class="descname">registerthread</tt><big>(</big><em>s</em>, <em>account</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.registerthread" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a hint to UIs about which account this particular
 thread is processing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.ui.UIBase.UIBase.serverdiagnostics">
+<tt class="descname">serverdiagnostics</tt><big>(</big><em>repository</em>, <em>type</em><big>)</big><a class="headerlink" href="#offlineimap.ui.UIBase.UIBase.serverdiagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to repository and output useful information for debugging</p>
 </dd></dl>
 
 <dl class="method">
@@ -205,7 +211,7 @@ just ignore this.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A pluggable logging system</a><ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A flexible logging system</a><ul>
 <li><a class="reference internal" href="#base-ui-plugin">Base UI plugin</a></li>
 </ul>
 </li>
@@ -213,7 +219,7 @@ just ignore this.</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="repository.html"
-                        title="previous chapter"><tt class="docutils literal docutils literal"><span class="pre">offlineimap.repository</span></tt> &#8211; Email repositories</a></p>
+                        title="previous chapter"><tt class="docutils literal docutils literal docutils literal"><span class="pre">offlineimap.repository</span></tt> &#8211; Email repositories</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="offlineimap.html"
                         title="next chapter">The offlineimap &#8216;binary&#8217; command line options</a></p>

@@ -23,7 +23,7 @@
     <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
     <link rel="top" title="OfflineImap v6.3.4 documentation" href="index.html" />
-    <link rel="next" title="offlineimap.ui – A pluggable logging system" href="ui.html" />
+    <link rel="next" title="offlineimap.ui – A flexible logging system" href="ui.html" />
     <link rel="prev" title="Welcome to offlineimaps‘s documentation" href="index.html" /> 
   </head>
   <body>
@@ -34,7 +34,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ui.html" title="offlineimap.ui – A pluggable logging system"
+          <a href="ui.html" title="offlineimap.ui – A flexible logging system"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Welcome to offlineimaps‘s documentation"
@@ -91,8 +91,8 @@ executed instead of this stub</p>
 </dd></dl>
 
 </div>
-<div class="section" id="offlineimap-repository-basic-representation-of-a-mail-repository">
-<h1><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap.repository</span></tt> &#8211; Basic representation of a mail repository<a class="headerlink" href="#offlineimap-repository-basic-representation-of-a-mail-repository" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="offlineimap-repository-base-baserepository-representation-of-a-mail-repository">
+<h1><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap.repository.Base.BaseRepository</span></tt> &#8211; Representation of a mail repository<a class="headerlink" href="#offlineimap-repository-base-baserepository-representation-of-a-mail-repository" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="offlineimap.repository.Base.BaseRepository">
 <em class="property">class </em><tt class="descname">BaseRepository</tt><big>(</big><em>reposname</em>, <em>account</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository" title="Permalink to this definition">¶</a></dt>
@@ -136,17 +136,17 @@ after a sync run.</p>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.getconf">
-<tt class="descname">getconf</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x2633230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconf" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getconf</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x261d230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.getconfboolean">
-<tt class="descname">getconfboolean</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x2633230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconfboolean" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getconfboolean</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x261d230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconfboolean" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.getconffloat">
-<tt class="descname">getconffloat</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x2633230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconffloat" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getconffloat</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x261d230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconffloat" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -156,7 +156,7 @@ after a sync run.</p>
 
 <dl class="method">
 <dt id="offlineimap.repository.Base.BaseRepository.getconfint">
-<tt class="descname">getconfint</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x2633230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconfint" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getconfint</tt><big>(</big><em>option</em>, <em>default=&lt;function CustomConfigDefault at 0x261d230&gt;</em><big>)</big><a class="headerlink" href="#offlineimap.repository.Base.BaseRepository.getconfint" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -587,7 +587,7 @@ statusfolder.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">offlineimap.repository</span></tt> &#8211; Email repositories</a></li>
-<li><a class="reference internal" href="#offlineimap-repository-basic-representation-of-a-mail-repository"><tt class="docutils literal"><span class="pre">offlineimap.repository</span></tt> &#8211; Basic representation of a mail repository</a></li>
+<li><a class="reference internal" href="#offlineimap-repository-base-baserepository-representation-of-a-mail-repository"><tt class="docutils literal"><span class="pre">offlineimap.repository.Base.BaseRepository</span></tt> &#8211; Representation of a mail repository</a></li>
 <li><a class="reference internal" href="#offlineimap-folder-basic-representation-of-a-local-or-remote-mail-folder"><tt class="docutils literal"><span class="pre">offlineimap.folder</span></tt> &#8211; Basic representation of a local or remote Mail folder</a></li>
 </ul>
 
@@ -596,7 +596,7 @@ statusfolder.</p>
                         title="previous chapter">Welcome to <tt class="docutils literal docutils literal docutils literal"><span class="pre">offlineimaps</span></tt>&#8216;s documentation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="ui.html"
-                        title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A pluggable logging system</a></p>
+                        title="next chapter"><tt class="docutils literal docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A flexible logging system</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="sources/repository.txt"
@@ -626,7 +626,7 @@ statusfolder.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ui.html" title="offlineimap.ui – A pluggable logging system"
+          <a href="ui.html" title="offlineimap.ui – A flexible logging system"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Welcome to offlineimaps‘s documentation"

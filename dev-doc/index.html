@@ -46,8 +46,8 @@
             
   <div class="section" id="welcome-to-offlineimaps-s-documentation">
 <h1>Welcome to <tt class="xref py py-mod docutils literal"><span class="pre">offlineimaps</span></tt>&#8216;s documentation<a class="headerlink" href="#welcome-to-offlineimaps-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-offlineimap"><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap</span></tt></a> module provides the user interface for synchronization between IMAP servers and MailDirs or between IMAP servers. The homepage containing the source code repository can be found at the <a class="reference external" href="http://offlineimap.org">offlineimap homepage</a>.</p>
-<p>Within <a class="reference internal" href="#module-offlineimap"><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap</span></tt></a>, the classes <a class="reference internal" href="#offlineimap.OfflineImap" title="offlineimap.OfflineImap"><tt class="xref py py-class docutils literal"><span class="pre">OfflineImap</span></tt></a> provides the high-level functionality. The rest of the classes should usually not needed to be touched by the user. A folder is represented by a <a class="reference internal" href="repository.html#offlineimap.folder.Base.BaseFolder" title="offlineimap.folder.Base.BaseFolder"><tt class="xref py py-class docutils literal"><span class="pre">offlineimap.folder.Base.BaseFolder</span></tt></a> or any derivative <tt class="xref py py-mod docutils literal"><span class="pre">offlineimap.folder</span></tt>.</p>
+<p>The <a class="reference internal" href="#module-offlineimap"><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap</span></tt></a> module provides the user interface for synchronization between IMAP servers and MailDirs or between IMAP servers. The homepage containing the source code repository can be found at the <a class="reference external" href="http://offlineimap.org">offlineimap homepage</a>. The following provides the developer documentation for those who are interested in modifying the source code or otherwise peek into the OfflineImap internals. End users might want to check the MANUAL, our INSTALLation instructions, and the FAQ.</p>
+<p>Within <a class="reference internal" href="#module-offlineimap"><tt class="xref py py-mod docutils literal"><span class="pre">offlineimap</span></tt></a>, the classes <a class="reference internal" href="#offlineimap.OfflineImap" title="offlineimap.OfflineImap"><tt class="xref py py-class docutils literal"><span class="pre">OfflineImap</span></tt></a> provides the high-level functionality. The rest of the classes should usually not needed to be touched by the user. Email repositories are represented by a <a class="reference internal" href="repository.html#offlineimap.repository.Base.BaseRepository" title="offlineimap.repository.Base.BaseRepository"><tt class="xref py py-class docutils literal"><span class="pre">offlineimap.repository.Base.BaseRepository</span></tt></a> or derivatives (see <tt class="xref py py-mod docutils literal"><span class="pre">offlineimap.repository</span></tt> for details). A folder within a repository is represented by a <a class="reference internal" href="repository.html#offlineimap.folder.Base.BaseFolder" title="offlineimap.folder.Base.BaseFolder"><tt class="xref py py-class docutils literal"><span class="pre">offlineimap.folder.Base.BaseFolder</span></tt></a> or any derivative from <tt class="xref py py-mod docutils literal"><span class="pre">offlineimap.folder</span></tt>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -57,7 +57,7 @@
 </tbody>
 </table>
 <p>This page contains the main API overview of OfflineImap 6.3.4.</p>
-<p>Notmuch can be imported as:</p>
+<p>OfflineImap can be imported as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">offlineimap</span> <span class="kn">import</span> <span class="n">OfflineImap</span>
 </pre></div>
 </div>
@@ -65,9 +65,9 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="repository.html"><tt class="docutils literal"><span class="pre">offlineimap.repository</span></tt> &#8211; Email repositories</a></li>
-<li class="toctree-l1"><a class="reference internal" href="repository.html#offlineimap-repository-basic-representation-of-a-mail-repository"><tt class="docutils literal"><span class="pre">offlineimap.repository</span></tt> &#8211; Basic representation of a mail repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository.html#offlineimap-repository-base-baserepository-representation-of-a-mail-repository"><tt class="docutils literal"><span class="pre">offlineimap.repository.Base.BaseRepository</span></tt> &#8211; Representation of a mail repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repository.html#offlineimap-folder-basic-representation-of-a-local-or-remote-mail-folder"><tt class="docutils literal"><span class="pre">offlineimap.folder</span></tt> &#8211; Basic representation of a local or remote Mail folder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ui.html"><tt class="docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A pluggable logging system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html"><tt class="docutils literal"><span class="pre">offlineimap.ui</span></tt> &#8211; A flexible logging system</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offlineimap.html">The offlineimap &#8216;binary&#8217; command line options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="offlineimap.html#indices-and-tables">Indices and tables</a></li>
 </ul>
@@ -84,11 +84,6 @@
 <span class="n">oi</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="offlineimap.OfflineImap.lock">
-<tt class="descname">lock</tt><big>(</big><em>config</em>, <em>ui</em><big>)</big><a class="headerlink" href="#offlineimap.OfflineImap.lock" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="offlineimap.OfflineImap.run">
 <tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#offlineimap.OfflineImap.run" title="Permalink to this definition">¶</a></dt>
@@ -125,24 +120,11 @@ as configured</li>
 
 <dl class="class">
 <dt id="offlineimap.accounts.SyncableAccount">
-<em class="property">class </em><tt class="descname">SyncableAccount</tt><big>(</big><em>config</em>, <em>name</em><big>)</big><a class="headerlink" href="#offlineimap.accounts.SyncableAccount" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descname">SyncableAccount</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#offlineimap.accounts.SyncableAccount" title="Permalink to this definition">¶</a></dt>
 <dd><p>A syncable email account connecting 2 repositories</p>
 <p>Derives from <a class="reference internal" href="#offlineimap.accounts.Account" title="offlineimap.accounts.Account"><tt class="xref py py-class docutils literal"><span class="pre">accounts.Account</span></tt></a> but contains the additional
 functions <tt class="xref py py-meth docutils literal"><span class="pre">syncrunner()</span></tt>, <tt class="xref py py-meth docutils literal"><span class="pre">sync()</span></tt>, <tt class="xref py py-meth docutils literal"><span class="pre">syncfolders()</span></tt>,
 used for syncing.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>config</strong> (<tt class="xref py py-class docutils literal"><span class="pre">offlineimap.CustomConfig.CustomConfigParser</span></tt>) &#8211; Representing the offlineimap configuration file.</li>
-<li><strong>name</strong> &#8211; A string denoting the name of the Account
-as configured</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 <dl class="data">
 <dt id="offlineimap.SyncableAccount.ui">
 <tt class="descname">ui</tt><a class="headerlink" href="#offlineimap.SyncableAccount.ui" title="Permalink to this definition">¶</a></dt>
@@ -165,6 +147,18 @@ function. Ie, we will only skip one sleep and not all.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.accounts.SyncableAccount.lock">
+<tt class="descname">lock</tt><big>(</big><big>)</big><a class="headerlink" href="#offlineimap.accounts.SyncableAccount.lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lock the account, throwing an exception if it is locked already</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="offlineimap.accounts.SyncableAccount.serverdiagnostics">
+<tt class="descname">serverdiagnostics</tt><big>(</big><big>)</big><a class="headerlink" href="#offlineimap.accounts.SyncableAccount.serverdiagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output diagnostics for all involved repositories</p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -205,6 +199,12 @@ ie all accounts will return after they finished a sync.</p>
 be called from the <tt class="xref py py-meth docutils literal"><span class="pre">syncrunner()</span></tt> function.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="offlineimap.accounts.SyncableAccount.unlock">
+<tt class="descname">unlock</tt><big>(</big><big>)</big><a class="headerlink" href="#offlineimap.accounts.SyncableAccount.unlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlock the account, deleting the lock file</p>
+</dd></dl>
+
 </dd></dl>
 
 <div class="section" id="offlineimaperror-a-notmuch-execution-error">
@@ -237,7 +237,7 @@ on errors during the offlineimap execution. It has an attribute
 <dl class="class">
 <dt id="offlineimap.error.OfflineImapError.ERROR">
 <em class="property">class </em><tt class="descname">ERROR</tt><a class="headerlink" href="#offlineimap.error.OfflineImapError.ERROR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Severity levels</p>
+<dd><p>Severity level of an Exception</p>
 <ul class="simple">
 <li><strong>MESSAGE</strong>:  Abort the current message, but continue with folder</li>
 <li><strong>FOLDER</strong>:   Abort folder sync, but continue with next folder</li>
