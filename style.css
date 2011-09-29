@@ -76,19 +76,24 @@ section#content {
   vertical-align: top;
 }
 /* commits box */
-aside#commits_rss {
+aside#commits {
   float: right;
   overflow: hidden;
   margin: 0px;
-  padding: 5px;
+  padding: 0px 5px;
   width: 170px;
   border: solid gray 1px;
 }
-/* powered by... */
-aside#commits_rss > p {
-  font-size: xx-small;
-  vertical-align:top;
-  text-align: center;
+#commits > h4 {margin:0px;}
+
+.rssBody > ul{
+  margin: 0px;
+  padding: 0px;
+}
+.rssRow {
+  padding: 0px;
+  list-style: none inside;
+  font-size: x-small;
   font-family: sans-serif;
-  margin-top: -15px;
+  border-bottom: dashed gray 1px;
 }
