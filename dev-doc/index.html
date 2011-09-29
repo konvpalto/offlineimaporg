@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to offlineimaps‘s documentation &mdash; OfflineImap v6.3.4 documentation</title>
+    <title>Welcome to offlineimaps‘s documentation &mdash; OfflineImap v6.4.0 documentation</title>
     <link rel="stylesheet" href="static/default.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '6.3.4',
+        VERSION:     '6.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="static/jquery.js"></script>
     <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
-    <link rel="top" title="OfflineImap v6.3.4 documentation" href="#" />
+    <link rel="top" title="OfflineImap v6.4.0 documentation" href="#" />
     <link rel="next" title="offlineimap.repository – Email repositories" href="repository.html" /> 
   </head>
   <body>
@@ -35,7 +35,7 @@
         <li class="right" >
           <a href="repository.html" title="offlineimap.repository – Email repositories"
              accesskey="N">next</a> |</li>
-        <li><a href="#">OfflineImap v6.3.4 documentation</a> &raquo;</li> 
+        <li><a href="#">OfflineImap v6.4.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -56,7 +56,7 @@
 </tr>
 </tbody>
 </table>
-<p>This page contains the main API overview of OfflineImap 6.3.4.</p>
+<p>This page contains the main API overview of OfflineImap 6.4.0.</p>
 <p>OfflineImap can be imported as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">offlineimap</span> <span class="kn">import</span> <span class="n">OfflineImap</span>
 </pre></div>
@@ -155,12 +155,6 @@ function. Ie, we will only skip one sleep and not all.</p>
 <dd><p>Lock the account, throwing an exception if it is locked already</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="offlineimap.accounts.SyncableAccount.serverdiagnostics">
-<tt class="descname">serverdiagnostics</tt><big>(</big><big>)</big><a class="headerlink" href="#offlineimap.accounts.SyncableAccount.serverdiagnostics" title="Permalink to this definition">¶</a></dt>
-<dd><p>Output diagnostics for all involved repositories</p>
-</dd></dl>
-
 <dl class="classmethod">
 <dt id="offlineimap.accounts.SyncableAccount.set_abort_event">
 <em class="property">classmethod </em><tt class="descname">set_abort_event</tt><big>(</big><em>config</em>, <em>signum</em><big>)</big><a class="headerlink" href="#offlineimap.accounts.SyncableAccount.set_abort_event" title="Permalink to this definition">¶</a></dt>
@@ -240,6 +234,7 @@ on errors during the offlineimap execution. It has an attribute
 <dd><p>Severity level of an Exception</p>
 <ul class="simple">
 <li><strong>MESSAGE</strong>:  Abort the current message, but continue with folder</li>
+<li><strong>FOLDER_RETRY</strong>: Error syncing folder, but do retry</li>
 <li><strong>FOLDER</strong>:   Abort folder sync, but continue with next folder</li>
 <li><strong>REPO</strong>:     Abort repository sync, continue with next account</li>
 <li><strong>CRITICAL</strong>: Immediately exit offlineimap</li>
@@ -303,7 +298,7 @@ on errors during the offlineimap execution. It has an attribute
         <li class="right" >
           <a href="repository.html" title="offlineimap.repository – Email repositories"
              >next</a> |</li>
-        <li><a href="#">OfflineImap v6.3.4 documentation</a> &raquo;</li> 
+        <li><a href="#">OfflineImap v6.4.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
