@@ -23,6 +23,10 @@ $(document).ready(function () {
     limit: 5,
     header: false
   });
+$('#rssMails').rssfeed('http://rss.gmane.org/messages/excerpts/gmane.mail.imap.offlineimap.general', {
+    limit: 5,
+    header: true
+  });
 });
 </script>
 <script src="http://static.oswatershed.org/js/package_badge.js" type="text/javascript" ></script>
@@ -48,6 +52,8 @@ $(document).ready(function () {
 <!-- A sidebox that shows the latest Commits-->
 <aside id="commits">
 <h4>Latest commits</h4><div id="rssFeed">Recent commits requires JavaScript.</div>
+
+<div id="rssMails">Recent commits requires JavaScript.</div>
 </aside>
 
 <article>
