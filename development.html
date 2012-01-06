@@ -66,6 +66,7 @@ There are several branches. <emph>Master<emph> represents the current stable bra
 <p>Unfortunately no program is bug free. This is true for all imap servers, and even for OfflineImap. If something goes wrong and you want to report a bug, this is what you should do:</p>
 
 <ol><li>If you are using a stable version that came with your distribution, we would appreciate testing to make sure the bug hasn't been fixed already.</li>
+<li>Starting with version 6.5.0, offlineimap includes an <b>--info</b> switch that will output all kinds of useful information. Do that and capture the information as it will be useful for debugging.</li>
 <li>Take a debug log of the run that exposes the issue at hand and that does as little as possible otherwise (e.g. by using -f INBOX to only sync the INBOX if that is where your error occurs). You can create a debug log file by using:
 <tt>-d imap -d debug.log</tt> (or -d imap,maildir) if you suspect the problem is with how maildirs are handled.</li>
 <li>This produces a potentially very large log file, <b>including all your IMAP communication. That means that your username and your password will likely be included in the clear in that debug log!</b> Make sure you clean the file from it before sending it in.</li>
