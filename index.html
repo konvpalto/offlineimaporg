@@ -26,7 +26,7 @@ $('#rssMails').rssfeed('http://rss.gmane.org/messages/excerpts/gmane.mail.imap.o
     limit: 5, header: true
   });
 $('#rssNews').rssfeed('http://news.offlineimap.org/rss.xml', {
-    limit: 3, header: false, date: false, snippet: false, 
+    limit: 3, header: false, date: true, snippet: true,
   });
 });
 </script>
