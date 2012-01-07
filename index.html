@@ -35,6 +35,7 @@ $('#rssNews').rssfeed('http://news.offlineimap.org/rss.xml', {
 
 <body>
 <header>
+  <img id="logo" src="img/logo.png">
   <hgroup>
     <h1><a href="http://offlineimap.org">OfflineImap</a></h1>
     <h2>Syncing IMAP accounts since 2002</h2>
@@ -58,14 +59,13 @@ $('#rssNews').rssfeed('http://news.offlineimap.org/rss.xml', {
 
 <section>
 <article>
-<header><h1>Welcome to the OfflineIMAP project</h1></header>
-<p>OfflineImap operates on a REMOTE and a LOCAL repository and synchronizes emails between them, so that you can read the same mailbox from multiple computers. The REMOTE repository is some IMAP server, while LOCAL can be either a local Maildir or another IMAP server.</p>
+<p>OfflineImap synchronizes emails between two repositories, so that you can read the same mailbox from multiple computers. It supports IMAP as REMOTE repository and Maildir/IMAP as LOCAL repository. See below for a full list of features.</p>
 </article>
 
 <article>
 <header><h2>News</h2></header>
 <div id="rssNews">Recent news requires JavaScript.</div>
-<p>See older news <a href="http://news.offlineimap.org">here...</a></p>
+<p>Older news <a href="http://news.offlineimap.org">here</a> or <a href="https://twitter.com/#!/OfflineImap">follow us on Twitter. <img src="img/twitter_logo.png"/></a></p>
 </article>
 
 <article>
