@@ -22,9 +22,7 @@ $(document).ready(function () {
   $('#rssFeed').rssfeed('https://github.com/spaetz/offlineimap/commits/next.atom', {
     limit: 5, header: false
   });
-$('#rssMails').rssfeed('http://rss.gmane.org/messages/excerpts/gmane.mail.imap.offlineimap.general', {
-    limit: 5, header: true
-  });
+<!-- Disabled mail feed: $('#rssMails').rssfeed('http://rss.gmane.org/messages/excerpts/gmane.mail.imap.offlineimap.general', {limit: 5, header: true});-->
 $('#rssNews').rssfeed('http://news.offlineimap.org/rss.xml', {
     limit: 3, header: false, date: true, snippet: true,
   });
