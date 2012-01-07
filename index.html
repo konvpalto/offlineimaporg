@@ -56,15 +56,20 @@ $('#rssNews').rssfeed('http://news.offlineimap.org/rss.xml', {
 <div id="rssMails"></div>
 </aside>
 
+<section>
 <article>
-<header><h1>News</h1></header>
-<div id="rssNews" class="news">Recent news requires JavaScript.</div>
+<header><h1>Welcome to the OfflineIMAP project</h1></header>
+<p>OfflineImap operates on a REMOTE and a LOCAL repository and synchronizes emails between them, so that you can read the same mailbox from multiple computers. The REMOTE repository is some IMAP server, while LOCAL can be either a local Maildir or another IMAP server.</p>
+</article>
+
+<article>
+<header><h2>News</h2></header>
+<div id="rssNews">Recent news requires JavaScript.</div>
 <p>See older news <a href="http://news.offlineimap.org">here...</a></p>
 </article>
-<article>
-<header><h1><a id="ref-description"></a>Welcome to the OfflineIMAP project</h1></header>
-<p>OfflineImap operates on a REMOTE and a LOCAL repository and synchronizes emails between them, so that you can read the same mailbox from multiple computers. The REMOTE repository is some IMAP server, while LOCAL can be either a local Maildir or another IMAP server.</p>
 
+<article>
+<header><h1><a id="ref-description"></a>Overview</h1></header>
 <p>Configuring OfflineImap in basic mode is quite easy, however it provides an amazing amount of flexibility for those with special needs. You can specify the number of connections to your IMAP server, use arbitrary python functions (including regular expressions) to limit the number of folders being synchronized. You can transpose folder names between repositories using any python function, to mangle and modify folder names on the LOCAL repository. There are six different ways to hand the IMAP password to OfflineImap from console input, specifying in the configuration file, .netrc support, specifying in a separate file, to using arbitrary python functions that somehow return the password. Finally, you can use IMAPs IDLE infrastructure to always keep a connection to your IMAP server open and immediately be notified (and synchronized) when a new mail arrives (aka Push mail).</p>
 
 <p>Most configuration is done via the configuration file. However, any setting can also be overriden by command line options handed to OfflineIMAP.</p>
@@ -83,7 +88,7 @@ can modify it. In fact, you are encouraged to contribute changes back to us.</p>
 </article>
 
 <article>
-<header><h1><a id="method-of-operation">Method of Operation</a></h1></header>
+<header><h2><a id="method-of-operation">How it works</a></h2></header>
 
 <p>OfflineIMAP traditionally operates by maintaining a hierarchy of mail
 folders in Maildir format locally.  Your own mail reader will read mail
@@ -105,14 +110,13 @@ operation for the time being.</p>
 </article>
 
 <article>
-<header><h1><a id="rf-sys-reqs" >System requirements</a></h1></header>
+<header><h2><a id="rf-sys-reqs" >System requirements</a></h2></header>
 
 <p>OfflineIMAP works on pretty much any POSIX operating system, such as
 Linux, BSD operating systems, MacOS X, Solaris. With some fiddling, it
-reportedly ran under Windows as well (TODO: link to documentation
-needed).</p>
+reportedly ran under Windows as well (TODO: Is there Win documentation?).</p>
 
-<p>It requires: Python >= 2.6.</p>
+<p>Required: Python >= 2.6, and optionally (but recommended) python-sqlite.</p>
 </article>
 
 <article>
@@ -188,6 +192,7 @@ The full <a href="http://docs.offlineimap.org">developer documentation</a> can b
 <p>If you prefer to read the documentation offline, you can find them in
 your git repository checkout in the <emph>docs</emph> directory. Generate the documentation with: <tt>make doc</tt> and <tt>make dev-doc</tt>.</p>
 </article>
+</section>
 
 <article>
 <header><h1><a id="ref-links">Important links</a></h1>All important links at a glance...</header>
@@ -214,7 +219,7 @@ your git repository checkout in the <emph>docs</emph> directory. Generate the do
          <li><a href="nntp://news.gmane.org/gmane.mail.imap.offlineimap.general">access via nntp (Usenet)</a></li>
 
          <li>Bugs <a href="development.html#ref-reporting-bugs">should
-         be reported</a> to the mailing list.</li>
+         be reported</a> to the mailing list. They will also be tracked at our <a href="https://github.com/spaetz/offlineimap/issues">issue tracker</a>.</li>
        </ul>
  </td>
 </tr><tr><td>Related projects</td><td><ul><li><a href="http://notmuchmail.org">notmuch email client</a></li></ul></td>
