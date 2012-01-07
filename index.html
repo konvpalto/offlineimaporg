@@ -20,12 +20,13 @@
 <script type="text/javascript">
 $(document).ready(function () {
   $('#rssFeed').rssfeed('https://github.com/spaetz/offlineimap/commits/next.atom', {
-    limit: 5,
-    header: false
+    limit: 5, header: false
   });
 $('#rssMails').rssfeed('http://rss.gmane.org/messages/excerpts/gmane.mail.imap.offlineimap.general', {
-    limit: 5,
-    header: true
+    limit: 5, header: true
+  });
+$('#rssNews').rssfeed('http://news.offlineimap.org/rss.xml', {
+    limit: 3, header: false, date: false, snippet: false, 
   });
 });
 </script>
@@ -55,6 +56,11 @@ $('#rssMails').rssfeed('http://rss.gmane.org/messages/excerpts/gmane.mail.imap.o
 <div id="rssMails"></div>
 </aside>
 
+<article>
+<header><h1>News</h1></header>
+<div id="rssNews" class="news">Recent news requires JavaScript.</div>
+<p>See older news <a href="http://news.offlineimap.org">here...</a></p>
+</article>
 <article>
 <header><h1><a id="ref-description"></a>Welcome to the OfflineIMAP project</h1></header>
 <p>OfflineImap operates on a REMOTE and a LOCAL repository and synchronizes emails between them, so that you can read the same mailbox from multiple computers. The REMOTE repository is some IMAP server, while LOCAL can be either a local Maildir or another IMAP server.</p>
@@ -175,7 +181,7 @@ The full installation instructions are also part of the source code repository a
 We have the <a href="https://github.com/spaetz/offlineimap/blob/master/docs/MANUAL.rst#readme">OfflineImap manual page</a> online too, as well as a <a href="https://github.com/spaetz/offlineimap/blob/master/docs/FAQ.rst#readme">FAQ section</a>. Do peruse these as they might help you solve your problems and tweak OfflineIMAP. The manual contains explanations, hints, and typical use cases.
 
 <h2>Developer Documentation</h2>
-The full <a href="http://offlineimap.readthedocs.org">developer documentation</a> can be viewed online. It contains the code documentation of all relevant functions in the OfflineImap source code base and should help in case you plan to modify or improve OfflineImap.
+The full <a href="http://docs.offlineimap.org">developer documentation</a> can be viewed online. It contains the code documentation of all relevant functions in the OfflineImap source code base and should help in case you plan to modify or improve OfflineImap.
 
 <h2>Local documentation</h2>
 
