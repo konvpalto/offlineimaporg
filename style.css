@@ -69,6 +69,18 @@ section#content {
   margin: 1em 0.5em 1em 0.5em;
 }
 
+.multicol{
+  #-moz-column-count: 3;
+  -moz-column-width: 24em;
+  -moz-column-gap: 20px;
+  #-webkit-column-count: 3;
+  -webkit-column-width: 24em;
+  -webkit-column-gap: 20px;
+  #column-count: 3;
+  column-width: 24em;
+  column-gap: 20px;
+}
+
 #pre {
   color: blue;
 }
@@ -90,6 +102,7 @@ aside#commits {
   margin: 0px;
   padding: 0px;
 }
+
 .rssRow {
   padding: 0px;
   list-style: none inside;
@@ -97,13 +110,22 @@ aside#commits {
   font-family: sans-serif;
   border-bottom: dashed gray 1px;
 }
+
 #commits > h4 {margin:0px;}
 
+/*posterous announcements*/
 #rssNews {
-  padding-left: 5px;}
+  float:left;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;}
 #rssNews .rssRow {
+  margin: 2px 0px;
+  background-color:#CCCCCC;
   border-left: 3px solid gray;
   padding-left: 5px;
   font-size: 100%;
-  border-bottom-width: 0px;
+  border-bottom-width: 1px;
 }
+
+#rssNews h4 {margin:2px 0px; padding:0px;}
+#rssNews * p {margin:0px; padding:0px;}
